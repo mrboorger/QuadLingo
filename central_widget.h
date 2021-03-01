@@ -12,12 +12,11 @@ class CentralWidget : public QWidget {
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 
-  void ChangeToTranslation();
  private:
   QHBoxLayout layout_;
 
   ChoiceWidget* choice_widget_;
-  QWidget* exercise_widget_;
+  ExerciseWidget* exercise_widget_;
 };
 
 #endif  // CENTRAL_WIDGET_H_

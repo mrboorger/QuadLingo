@@ -2,7 +2,8 @@
 
 ExerciseWidget::ExerciseWidget(QWidget* parent) : exercise_(nullptr) {
   setParent(parent);
-  // ChangeToTranslation();
+  ChangeToTranslation();
+  // ChangeToGrammar();
 }
 
 void ExerciseWidget::ChangeToTranslation() {
@@ -18,7 +19,7 @@ void ExerciseWidget::ChangeToGrammar() {
   // открепить родителя ?
   delete exercise_;
   // наследование можно(нужно?) убрать
-  // exercise_ = new GrammarWidget(this);
+  exercise_ = new GrammarWidget(this);
 }
 
 void ExerciseWidget::GenerateNewSentence() {
