@@ -58,9 +58,15 @@ ChoiceWidget::ChoiceWidget(QWidget* parent)
 
   connect(translation_button_, &QPushButton::clicked,
           this, &ChoiceWidget::ChangeToTranslationSignal);
+  connect(grammar_button_, &QPushButton::clicked,
+          this, &ChoiceWidget::ChangeToGrammarSignal);
 }
 
 void ChoiceWidget::ChangeToTranslation() {
   emit(ChangeToTranslationSignal());
+}
+
+void ChoiceWidget::ChangeToGrammar() {
+  emit(ChangeToGrammarSignal());
 }
 

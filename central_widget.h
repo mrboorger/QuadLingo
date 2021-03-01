@@ -16,7 +16,7 @@ class CentralWidget : public QWidget {
 
   // void ChangeToEmpty();
   void ChangeToTranslation();
-  // void ChangeToGrammar();
+  void ChangeToGrammar();
 
  private:
   QHBoxLayout* layout_;

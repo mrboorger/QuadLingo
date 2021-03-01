@@ -16,11 +16,11 @@ class ChoiceWidget : public QWidget {
   // void resizeEvent(QResizeEvent *event) override;
 
   void ChangeToTranslation();
-  // void ChangeToGrammar();
+  void ChangeToGrammar();
 
   signals:
    void ChangeToTranslationSignal();
-   // void ChangeToGrammarSignal();
+   void ChangeToGrammarSignal();
 
  private:
   QVBoxLayout* vert_layout_;

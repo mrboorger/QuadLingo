@@ -13,12 +13,23 @@ CentralWidget::CentralWidget(QWidget* parent) : layout_(new QHBoxLayout(this)),
 
   connect(choice_widget_, &ChoiceWidget::ChangeToTranslationSignal,
           this, &CentralWidget::ChangeToTranslation);
+  connect(choice_widget_, &ChoiceWidget::ChangeToGrammarSignal,
+          this, &CentralWidget::ChangeToGrammar);
 }
 
 void CentralWidget::ChangeToTranslation() {
+  // del function
   layout_->removeWidget(exercise_widget_);
   delete exercise_widget_;
   exercise_widget_ = new TranslationExercise(this);
+  layout_->addWidget(exercise_widget_);
+}
+
+void CentralWidget::ChangeToGrammar() {
+  // del function
+  layout_->removeWidget(exercise_widget_);
+  delete exercise_widget_;
+  exercise_widget_ = new GrammarExercise(this);
   layout_->addWidget(exercise_widget_);
 }
 
