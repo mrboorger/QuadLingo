@@ -15,6 +15,13 @@ class ChoiceWidget : public QWidget {
   explicit ChoiceWidget(QWidget* parent = nullptr);
   // void resizeEvent(QResizeEvent *event) override;
 
+  void ChangeToTranslation();
+  // void ChangeToGrammar();
+
+  signals:
+   void ChangeToTranslationSignal();
+   // void ChangeToGrammarSignal();
+
  private:
   QVBoxLayout* vert_layout_;
   QLabel* hello_label_;

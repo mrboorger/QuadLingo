@@ -15,11 +15,11 @@ class CentralWidget : public QWidget {
   explicit CentralWidget(QWidget* parent = nullptr);
 
   // void ChangeToEmpty();
-  // void ChangeToTranslation();
+  void ChangeToTranslation();
   // void ChangeToGrammar();
 
  private:
-  QHBoxLayout layout_;
+  QHBoxLayout* layout_;
 
   ChoiceWidget* choice_widget_;
   ExerciseWidget* exercise_widget_;
