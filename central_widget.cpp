@@ -2,7 +2,7 @@
 
 CentralWidget::CentralWidget(QWidget* parent) :
     choice_widget_(new ChoiceWidget(this)),
-    exercise_widget_(new ExerciseWidget(this)) {
+    exercise_widget_(new EmptyExercise(this)) {
   setParent(parent);
 
   choice_widget_->setSizePolicy(QSizePolicy::Expanding,

@@ -1,8 +1,6 @@
-#include "grammar_widget.h"
+#include "grammar_exercise.h"
 
-GrammarWidget::GrammarWidget(QWidget* parent) {
-  setParent(parent);
-  // move to :
+GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
   layout_ = new QVBoxLayout(this);
   task_label_ = new QLabel("Choose the right answer:", this);
   sentence_label_ = new QLabel("sentence", this);
@@ -33,6 +31,6 @@ GrammarWidget::GrammarWidget(QWidget* parent) {
   GenerateNewSentence();
 }
 
-void GrammarWidget::GenerateNewSentence() {
+void GrammarExercise::GenerateNewSentence() {
 
 }

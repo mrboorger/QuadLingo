@@ -1,5 +1,5 @@
-#ifndef GRAMMAR_WIDGET_H_
-#define GRAMMAR_WIDGET_H_
+#ifndef GRAMMAR_EXERCISE_H_
+#define GRAMMAR_EXERCISE_H_
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -8,10 +8,12 @@
 #include <QGroupBox>
 #include <QRadioButton>
 
-class GrammarWidget : public QWidget {
+#include "exercise_widget.h"
+
+class GrammarExercise : public ExerciseWidget {
  Q_OBJECT
  public:
-  explicit GrammarWidget(QWidget* parent);
+  explicit GrammarExercise(QWidget* parent);
   void GenerateNewSentence();
 
  private:
@@ -29,4 +31,4 @@ class GrammarWidget : public QWidget {
  private:
 };
 
-#endif  // GRAMMAR_WIDGET_H_
+#endif  // GRAMMAR_EXERCISE_H_

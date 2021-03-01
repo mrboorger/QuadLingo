@@ -1,5 +1,5 @@
-#ifndef TRANSLATION_WIDGET_H_
-#define TRANSLATION_WIDGET_H_
+#ifndef TRANSLATION_EXERCISE_H_
+#define TRANSLATION_EXERCISE_H_
 
 #include <QWidget>
 #include <QLabel>
@@ -7,11 +7,13 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-class TranslationWidget : public QWidget {
+#include "exercise_widget.h"
+
+class TranslationExercise : public ExerciseWidget {
   Q_OBJECT
  public:
-  explicit TranslationWidget(QWidget* parent);
-  void GenerateNewSentence();
+  explicit TranslationExercise(QWidget* parent);
+  void GenerateNewSentence() final;
 
  private:
   QVBoxLayout* layout_;
@@ -22,4 +24,4 @@ class TranslationWidget : public QWidget {
   QPushButton* submit_button_;
 };
 
-#endif  // TRANSLATION_WIDGET_H_
+#endif  // TRANSLATION_EXERCISE_H_
