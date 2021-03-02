@@ -15,13 +15,12 @@ class GrammarExercise : public ExerciseWidget {
  Q_OBJECT
  public:
   explicit GrammarExercise(QWidget* parent);
-  void GenerateNewSentence();
 
  private:
   void GGLoadSentences();
-  void CheckAnswerAndToNextPart(); // move to public ? наследование приват
-  void GenerateNextPart();
-  void CheckAnswer(const QRadioButton* radio_button);
+  void CheckAnswerAndToNextPart() final; // move to public ? наследование приват
+  void GenerateNextPart() final;
+  void CheckAnswer() final;
 
   QVector<GrammarQuestion> exercises_;
 

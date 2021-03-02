@@ -15,9 +15,9 @@ class TranslationExercise : public ExerciseWidget {
   explicit TranslationExercise(QWidget* parent);
 
  private:
-  void GenerateNextPart();
-  void CheckTranslation();
-  void CheckAnswerAndToNextPart(); // move to public ? наследование приват
+  void GenerateNextPart() final;
+  void CheckAnswer() final;
+  void CheckAnswerAndToNextPart() final; // move to public ? наследование приват
 
   void GGLoadSentences();  // to delete
 

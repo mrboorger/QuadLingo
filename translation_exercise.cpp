@@ -43,7 +43,7 @@ void TranslationExercise::GGLoadSentences() {
 }
 
 void TranslationExercise::CheckAnswerAndToNextPart() {
-  CheckTranslation();
+  CheckAnswer();
 
   if (cur_num_question_ < count_questions_) {
     GenerateNextPart();
@@ -52,7 +52,7 @@ void TranslationExercise::CheckAnswerAndToNextPart() {
   }
 }
 
-void TranslationExercise::CheckTranslation() {
+void TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
     ++count_incorrect_;

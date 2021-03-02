@@ -55,8 +55,18 @@ void GrammarExercise::GGLoadSentences() {
 }
 
 void GrammarExercise::CheckAnswerAndToNextPart() {
-  const QRadioButton* selected_variant = nullptr;
   // Foo
+  CheckAnswer();
+
+  if (cur_num_question_ < count_questions_) {
+    GenerateNextPart();
+  } else {
+    // result
+  }
+}
+
+void GrammarExercise::CheckAnswer() {
+  const QRadioButton* selected_variant = nullptr;
   if (variant_1_->isChecked()) {
     selected_variant = variant_1_;
   }
@@ -66,17 +76,7 @@ void GrammarExercise::CheckAnswerAndToNextPart() {
   if (variant_3_->isChecked()) {
     selected_variant = variant_3_;
   }
-  CheckAnswer(selected_variant);
-
-  if (cur_num_question_ < count_questions_) {
-    GenerateNextPart();
-  } else {
-    // result
-  }
-}
-
-void GrammarExercise::CheckAnswer(const QRadioButton* radio_button) {
-  if (exercises_[cur_num_question_ - 1].answer != radio_button->text()) {
+  if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
     ++count_incorrect_;
   }
 }

@@ -12,6 +12,11 @@ class ExerciseWidget : public QWidget {
   explicit ExerciseWidget(QWidget* parent = nullptr);
   virtual ~ExerciseWidget() = default;
 
+ protected:
+  virtual void GenerateNextPart() = 0;
+  virtual void CheckAnswer() = 0;
+  virtual void CheckAnswerAndToNextPart() = 0;
+
   // void ChangeToTranslation();
   // void ChangeToGrammar();
 };
