@@ -10,7 +10,7 @@ class ExerciseWidget : public QWidget {
   Q_OBJECT
  public:
   explicit ExerciseWidget(QWidget* parent = nullptr);
-  virtual ~ExerciseWidget() = default;
+  ~ExerciseWidget() override = default;
 
  protected:
   virtual void GenerateNextPart() = 0;

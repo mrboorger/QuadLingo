@@ -8,6 +8,7 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
   answer_->setPlaceholderText(tr("Write a translation here"));
   submit_button_ = new QPushButton("Submit", this);
   layout_ = new QVBoxLayout(this);
+  progress_bar_ = new QProgressBar(this);
 
   sentence_label_->setWordWrap(true);
 
@@ -15,7 +16,7 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
                          QSizePolicy::Expanding);
 
   submit_button_->setSizePolicy(QSizePolicy::Expanding,
-                         QSizePolicy::Expanding);
+                                QSizePolicy::Expanding);
 
   // answer_->setAutoFormatting(QTextEdit::AutoAll);
 
@@ -27,6 +28,10 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
   layout_->addWidget(answer_, 3);
 
   layout_->addWidget(submit_button_, 1);
+
+  layout_->addWidget(progress_bar_, 1);
+
+  progress_bar_->setMaximum(count_questions_); ////
 
   connect(submit_button_, &QPushButton::clicked,
           this, &TranslationExercise::CheckAnswerAndToNextPart);
@@ -56,6 +61,7 @@ void TranslationExercise::GGLoadSentences() {
 void TranslationExercise::CheckAnswerAndToNextPart() {
   CheckAnswer();
 
+  progress_bar_->setValue(cur_num_question_);
   if (cur_num_question_ < count_questions_) {
     GenerateNextPart();
   } else {

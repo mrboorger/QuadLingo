@@ -6,6 +6,7 @@
 #include <QTextEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QProgressBar>
 
 #include "exercise_widget.h"
 
@@ -34,6 +35,8 @@ class TranslationExercise : public ExerciseWidget {
   QLabel* sentence_label_;
   QTextEdit* answer_;
   QPushButton* submit_button_;
+
+  QProgressBar* progress_bar_;  // red when incorrect
 };
 
 #endif  // TRANSLATION_EXERCISE_H_
