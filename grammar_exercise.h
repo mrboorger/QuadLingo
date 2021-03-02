@@ -25,24 +25,11 @@ class GrammarExercise : public ExerciseWidget {
 
   QVector<GrammarQuestion> exercises_;
 
-  int count_questions_ = 5;
-  int cur_num_question_ = 0;
-  int count_incorrect_ = 0;
-
-  QVBoxLayout* layout_;
-
-  QLabel* task_label_;
-  QLabel* sentence_label_;
   QGroupBox* radio_box_;
 
   QRadioButton* variant_1_;
   QRadioButton* variant_2_;
   QRadioButton* variant_3_;
-
-  QPushButton* submit_button_;
-
-  QProgressBar* progress_bar_;  // red when incorrect
- private:
 };
 
 #endif  // GRAMMAR_EXERCISE_H_

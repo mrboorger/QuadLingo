@@ -1,18 +1,13 @@
 #include "grammar_exercise.h"
 
 GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
-  layout_ = new QVBoxLayout(this);
-  task_label_ = new QLabel("Choose the right answer:", this);
-  sentence_label_ = new QLabel("sentence", this);
   radio_box_ = new QGroupBox(this);
 
   variant_1_ = new QRadioButton("1");  // vector ?
   variant_2_ = new QRadioButton("2");
   variant_3_ = new QRadioButton("3");
 
-  submit_button_ = new QPushButton("Submit", this);
-
-  progress_bar_ = new QProgressBar(this);
+  task_label_->setText("Choose the right answer:");
 
   sentence_label_->setWordWrap(true);
   submit_button_->setSizePolicy(QSizePolicy::Expanding,

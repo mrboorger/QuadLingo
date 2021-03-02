@@ -2,13 +2,10 @@
 
 TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
     parent) {
-  task_label_ = new QLabel("Translate this sentence", this);
-  sentence_label_ = new QLabel(this);
   answer_ = new QTextEdit(this);
   answer_->setPlaceholderText(tr("Write a translation here"));
-  submit_button_ = new QPushButton("Submit", this);
-  layout_ = new QVBoxLayout(this);
-  progress_bar_ = new QProgressBar(this);
+
+  task_label_->setText("Translate this sentence");
 
   sentence_label_->setWordWrap(true);
 
