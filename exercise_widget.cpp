@@ -12,19 +12,15 @@ ExerciseWidget::ExerciseWidget(QWidget* parent) :
   // ChangeToGrammar();
 }
 
-// void ExerciseWidget::ChangeToTranslation() {
-//   // delete ?
-//   // открепить родителя ?
-//   delete exercise_;
-//   // наследование можно(нужно?) убрать
-//   exercise_ = new TranslationExercise(this);
-// }
-//
-// void ExerciseWidget::ChangeToGrammar() {
-//   // delete ?
-//   // открепить родителя ?
-//   delete exercise_;
-//   // наследование можно(нужно?) убрать
-//   exercise_ = new GrammarExercise(this);
-// }
+void ExerciseWidget::keyPressEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_H) {
+    submit_button_->setText(tr("dddd"));
+    submit_button_->repaint();
+  }
+  QWidget::keyPressEvent(event);
+}
+
+// add buffer class
+
+
 
