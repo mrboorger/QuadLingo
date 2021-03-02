@@ -22,6 +22,3 @@ ExerciseWidget::ExerciseWidget(QWidget* parent) {
 //   exercise_ = new GrammarExercise(this);
 // }
 
-void ExerciseWidget::GenerateNewSentence() {
-
-}

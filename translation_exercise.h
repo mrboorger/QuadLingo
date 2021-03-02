@@ -13,9 +13,21 @@ class TranslationExercise : public ExerciseWidget {
   Q_OBJECT
  public:
   explicit TranslationExercise(QWidget* parent);
-  void GenerateNewSentence() final;
 
  private:
+  void GenerateNextPart();
+  void CheckTranslation();
+  void CheckAnswerAndToNextPart(); // move to public ?
+
+  void GGLoadSentences();  // to delete
+
+  int count_questions_ = 5;
+  int cur_num_question_ = 0;
+  int count_incorrect_ = 0;
+
+  QVector<QString> sentences_;
+  QVector<QString> translated_;
+
   QVBoxLayout* layout_;
 
   QLabel* task_label_;

@@ -14,8 +14,6 @@ class ExerciseWidget : public QWidget {
 
   // void ChangeToTranslation();
   // void ChangeToGrammar();
-
-  virtual void GenerateNewSentence() = 0;
 };
 
 #endif  // EXERCISE_WIDGET_H_

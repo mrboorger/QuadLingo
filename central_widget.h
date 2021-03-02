@@ -15,7 +15,7 @@ class CentralWidget : public QWidget {
   explicit CentralWidget(QWidget* parent = nullptr);
 
   // void ChangeToEmpty();
-  void ChangeToTranslation();
+  void ChangeToTranslation();  // указатель в choice_widget
   void ChangeToGrammar();
 
  private:
