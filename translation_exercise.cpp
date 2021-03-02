@@ -57,9 +57,9 @@ void TranslationExercise::CheckTranslation() {
       != answer_->toPlainText().toLower()) {
     ++count_incorrect_;
   }
-  answer_->setText(tr(""));
 }
 
 void TranslationExercise::GenerateNextPart() {
   sentence_label_->setText(sentences_[cur_num_question_++]);
+  answer_->setText(tr(""));
 }

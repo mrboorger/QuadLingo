@@ -17,7 +17,7 @@ class TranslationExercise : public ExerciseWidget {
  private:
   void GenerateNextPart();
   void CheckTranslation();
-  void CheckAnswerAndToNextPart(); // move to public ?
+  void CheckAnswerAndToNextPart(); // move to public ? наследование приват
 
   void GGLoadSentences();  // to delete
 
