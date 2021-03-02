@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <QGroupBox>
 #include <QRadioButton>
+#include <QProgressBar>
 
 #include "exercise_widget.h"
 #include "grammar_question.h"
@@ -39,6 +40,8 @@ class GrammarExercise : public ExerciseWidget {
   QRadioButton* variant_3_;
 
   QPushButton* submit_button_;
+
+  QProgressBar* progress_bar_;  // red when incorrect
  private:
 };
 

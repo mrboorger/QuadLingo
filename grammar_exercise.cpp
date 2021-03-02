@@ -12,6 +12,8 @@ GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
 
   submit_button_ = new QPushButton("Submit", this);
 
+  progress_bar_ = new QProgressBar(this);
+
   sentence_label_->setWordWrap(true);
   submit_button_->setSizePolicy(QSizePolicy::Expanding,
                                 QSizePolicy::Expanding);
@@ -30,6 +32,10 @@ GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
   layout_->addWidget(radio_box_, 3);
 
   layout_->addWidget(submit_button_, 1);
+
+  layout_->addWidget(progress_bar_, 1);
+
+  progress_bar_->setMaximum(count_questions_); ////
 
   setLayout(layout_);
   GGLoadSentences();
@@ -62,6 +68,7 @@ void GrammarExercise::CheckAnswerAndToNextPart() {
   // Foo
   CheckAnswer();
 
+  progress_bar_->setValue(cur_num_question_);
   if (cur_num_question_ < count_questions_) {
     GenerateNextPart();
   } else {
