@@ -1,8 +1,10 @@
 #include "central_widget.h"
 
 CentralWidget::CentralWidget(QWidget* parent) : layout_(new QHBoxLayout(this)),
-    choice_widget_(new ChoiceWidget(this)),
-    exercise_widget_(new EmptyExercise(this)) {
+                                                choice_widget_(new ChoiceWidget(
+                                                    this)),
+                                                exercise_widget_(new EmptyExercise(
+                                                    this)) {
   setParent(parent);
 
   // choice_widget_->setSizePolicy(QSizePolicy::Expanding,
@@ -20,7 +22,7 @@ CentralWidget::CentralWidget(QWidget* parent) : layout_(new QHBoxLayout(this)),
 }
 
 void CentralWidget::ChangeToTranslation() {
-  // del function
+  // del, function
   layout_->removeWidget(exercise_widget_);
   delete exercise_widget_;
   exercise_widget_ = new TranslationExercise(this);
@@ -28,10 +30,27 @@ void CentralWidget::ChangeToTranslation() {
 }
 
 void CentralWidget::ChangeToGrammar() {
-  // del function
+  // del, function
   layout_->removeWidget(exercise_widget_);
   delete exercise_widget_;
   exercise_widget_ = new GrammarExercise(this);
   layout_->addWidget(exercise_widget_, 1);
 }
+
+// void CentralWidget::RestartExercise() {
+//   {
+//     auto* ptr = dynamic_cast<TranslationExercise*>(exercise_widget_);
+//     if (ptr != nullptr) {
+//       ChangeToTranslation();
+//       return;
+//     }
+//   }
+//   {
+//     auto * ptr = dynamic_cast<GrammarExercise*>(exercise_widget_);
+//     if (ptr != nullptr) {
+//       ChangeToGrammar();
+//       return;
+//     }
+//   }
+// }
 

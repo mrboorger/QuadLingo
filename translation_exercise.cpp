@@ -55,6 +55,14 @@ void TranslationExercise::GGLoadSentences() {
   translated_.push_back(tr("Сделать Америку снова Великой"));
 }
 
+void TranslationExercise::GenerateNewExercise() {
+  sentences_.clear();
+  translated_.clear();
+  count_incorrect_ = 0;
+  cur_num_question_ = 0;
+  GGLoadSentences();
+}
+
 void TranslationExercise::CheckAnswerAndToNextPart() {
   CheckAnswer();
 
@@ -69,7 +77,7 @@ void TranslationExercise::CheckAnswerAndToNextPart() {
 void TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
-    ++count_incorrect_;
+    IncIncorrect();
   }
 }
 
@@ -77,3 +85,4 @@ void TranslationExercise::GenerateNextPart() {
   sentence_label_->setText(sentences_[cur_num_question_++]);
   answer_->setText(tr(""));
 }
+

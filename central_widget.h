@@ -5,6 +5,7 @@
 #include <QHBoxLayout>
 
 #include "choice_widget.h"
+#include "exercise_widget.h"
 #include "translation_exercise.h"
 #include "grammar_exercise.h"
 #include "empty_exercise.h"
@@ -17,6 +18,7 @@ class CentralWidget : public QWidget {
   // void ChangeToEmpty();
   void ChangeToTranslation();  // указатель в choice_widget
   void ChangeToGrammar();
+  void RestartExercise();
 
  private:
   QHBoxLayout* layout_;

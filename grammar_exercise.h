@@ -19,6 +19,8 @@ class GrammarExercise : public ExerciseWidget {
 
  private:
   void GGLoadSentences();
+
+  void GenerateNewExercise() final;
   void CheckAnswerAndToNextPart() final; // move to public ? наследование приват
   void GenerateNextPart() final;
   void CheckAnswer() final;

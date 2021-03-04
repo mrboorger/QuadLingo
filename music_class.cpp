@@ -35,7 +35,7 @@ QMediaPlaylist* MusicClass::GetPlaylist() {
 }
 
 void MusicClass::CreateDialog() {
-  SettingsDialog* dialog(new SettingsDialog(this));
+  auto* dialog(new SettingsDialog(this));
   dialog->exec();
 }
 
