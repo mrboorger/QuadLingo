@@ -34,8 +34,7 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
           this, &TranslationExercise::CheckAnswerAndToNextPart);
 
   setLayout(layout_);
-  GGLoadSentences();
-  GenerateNextPart();
+  GenerateNewExercise();
 }
 
 void TranslationExercise::GGLoadSentences() {
@@ -60,7 +59,15 @@ void TranslationExercise::GenerateNewExercise() {
   translated_.clear();
   count_incorrect_ = 0;
   cur_num_question_ = 0;
+
+  exercise_timer_->setSingleShot(true);
+  exercise_timer_->setInterval(time_to_solve_);
+  exercise_timer_->start();
+
+  std::cerr << "start" << std::endl;
+
   GGLoadSentences();
+  GenerateNextPart();
 }
 
 void TranslationExercise::CheckAnswerAndToNextPart() {

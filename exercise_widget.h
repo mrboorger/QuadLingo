@@ -8,6 +8,7 @@
 #include <QProgressBar>
 #include <QKeyEvent>
 #include <QDialog>
+#include <QTimer>
 
 #include <iostream>
 
@@ -18,10 +19,9 @@ class ExerciseWidget : public QWidget {
   ~ExerciseWidget() override = default;
 
   void keyPressEvent(QKeyEvent* event) override;
-
   virtual void RestartFail();
+  virtual void RestartTimeOut();
 
- signals:
   void RestartSignal();
 
  protected:
@@ -30,13 +30,17 @@ class ExerciseWidget : public QWidget {
   virtual void CheckAnswer() = 0;
   virtual void CheckAnswerAndToNextPart() = 0;
 
+  void startTimer();
   virtual void IncIncorrect();
   virtual void ShowTip();
 
+  int time_to_solve_ = 10000;
   int count_questions_ = 5;
   int max_wrong_ = 2;
   int cur_num_question_ = 0;
   int count_incorrect_ = 0;
+
+  QTimer* exercise_timer_;
 
   QString cur_tip_;
 
