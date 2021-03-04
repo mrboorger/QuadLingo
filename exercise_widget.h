@@ -22,7 +22,8 @@ class ExerciseWidget : public QWidget {
   virtual void RestartFail();
   virtual void RestartTimeOut();
 
-  void RestartSignal();
+  signals:
+  void IncScoreSignal();
 
  protected:
   virtual void GenerateNewExercise() = 0;
@@ -30,9 +31,8 @@ class ExerciseWidget : public QWidget {
   virtual bool CheckAnswer() = 0;
 
   void CheckAnswerAndToNextPart();
-  void startTimer();
-  virtual bool IncIncorrect();
-  virtual void ShowTip();
+  bool IncIncorrect();
+  void ShowTip();
 
   int time_to_solve_ = 10000;
   int count_questions_ = 5;

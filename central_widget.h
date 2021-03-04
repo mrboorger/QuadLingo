@@ -11,13 +11,18 @@
 #include "empty_exercise.h"
 
 class CentralWidget : public QWidget {
-  Q_OBJECT
+ Q_OBJECT
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 
   // void ChangeToEmpty();
   void ChangeToTranslation();  // указатель в choice_widget
   void ChangeToGrammar();
+
+  void IncScore();
+
+ signals:
+  void IncScoreSignal();
 
  private:
   QHBoxLayout* layout_;

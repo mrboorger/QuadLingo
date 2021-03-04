@@ -19,6 +19,7 @@ Menu::Menu(QWidget* parent) :
   // );
   addMenu(menu);
   this->setCornerWidget(score_label_);
+
 }
 
 void Menu::ShowDialog() {
@@ -34,4 +35,12 @@ void Menu::ShowDialog() {
 
 void Menu::ChangeDifficulty() {
 
+}
+
+void Menu::IncScore() {
+  // qDebug() << score_;
+  ++score_;
+  QString str("Score: ");
+  str.append(QString::number(score_));
+  score_label_->setText(str);
 }

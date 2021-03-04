@@ -10,6 +10,8 @@
 #include <QApplication>
 #include <QLabel>
 
+#include <iostream>
+
 #include "difficulty_dialog.h"
 #include "settings_dialog.h"
 #include "music_class.h"
@@ -22,7 +24,10 @@ class Menu : public QMenuBar {
   static void ShowDialog();
   void ChangeDifficulty();
 
+  void IncScore();
+
  private:
+  int score_ = 0;
   QLabel* score_label_;
   MusicClass* music_class_;
 };

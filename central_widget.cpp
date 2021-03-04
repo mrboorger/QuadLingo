@@ -1,10 +1,9 @@
 #include "central_widget.h"
 
-CentralWidget::CentralWidget(QWidget* parent) : layout_(new QHBoxLayout(this)),
-                                                choice_widget_(new ChoiceWidget(
-                                                    this)),
-                                                exercise_widget_(new EmptyExercise(
-                                                    this)) {
+CentralWidget::CentralWidget(QWidget* parent) :
+    layout_(new QHBoxLayout(this)),
+    choice_widget_(new ChoiceWidget(this)),
+    exercise_widget_(new EmptyExercise(this)) {
   setParent(parent);
 
   // choice_widget_->setSizePolicy(QSizePolicy::Expanding,
@@ -27,6 +26,9 @@ void CentralWidget::ChangeToTranslation() {
   delete exercise_widget_;
   exercise_widget_ = new TranslationExercise(this);
   layout_->addWidget(exercise_widget_, 1);
+
+  connect(exercise_widget_, &ExerciseWidget::IncScoreSignal,
+          this, &CentralWidget::IncScore);
 }
 
 void CentralWidget::ChangeToGrammar() {
@@ -35,22 +37,11 @@ void CentralWidget::ChangeToGrammar() {
   delete exercise_widget_;
   exercise_widget_ = new GrammarExercise(this);
   layout_->addWidget(exercise_widget_, 1);
+
+  connect(exercise_widget_, &ExerciseWidget::IncScoreSignal,
+          this, &CentralWidget::IncScore);
 }
 
-// void CentralWidget::RestartExercise() {
-//   {
-//     auto* ptr = dynamic_cast<TranslationExercise*>(exercise_widget_);
-//     if (ptr != nullptr) {
-//       ChangeToTranslation();
-//       return;
-//     }
-//   }
-//   {
-//     auto * ptr = dynamic_cast<GrammarExercise*>(exercise_widget_);
-//     if (ptr != nullptr) {
-//       ChangeToGrammar();
-//       return;
-//     }
-//   }
-// }
-
+void CentralWidget::IncScore() {
+  emit(IncScoreSignal());
+}
