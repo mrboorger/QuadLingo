@@ -86,3 +86,4 @@ void TranslationExercise::GenerateNextPart() {
   answer_->setText(tr(""));
 }
 
+

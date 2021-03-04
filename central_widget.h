@@ -18,7 +18,6 @@ class CentralWidget : public QWidget {
   // void ChangeToEmpty();
   void ChangeToTranslation();  // указатель в choice_widget
   void ChangeToGrammar();
-  void RestartExercise();
 
  private:
   QHBoxLayout* layout_;

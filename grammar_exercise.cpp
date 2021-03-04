@@ -51,6 +51,7 @@ void GrammarExercise::GGLoadSentences() {
     exercise.variants.push_back("major");
 
     exercise.answer = tr("issue");
+    exercise.tip = tr("You need write here");
   }
   exercises_.push_back(exercise);
   exercises_.push_back(exercise);
@@ -103,3 +104,4 @@ void GrammarExercise::GenerateNextPart() {
 
   variant_1_->setChecked(true);
 }
+
