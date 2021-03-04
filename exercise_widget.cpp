@@ -1,6 +1,6 @@
 #include "exercise_widget.h"
 
-ExerciseWidget::ExerciseWidget(QWidget* parent) :
+ExerciseWidget::ExerciseWidget(QWidget* parent, int level) :
     QWidget(parent),
     exercise_timer_(new QTimer(this)),
     layout_(new QVBoxLayout()),
@@ -8,8 +8,8 @@ ExerciseWidget::ExerciseWidget(QWidget* parent) :
     sentence_label_(new QLabel()),
     submit_button_(new QPushButton("Submit")),
     progress_bar_(new QProgressBar) {
-  // ChangeToTranslation();
-  // ChangeToGrammar();
+  // Centr
+  difficulty_level_ = level;
   task_label_->setWordWrap(true);
   sentence_label_->setWordWrap(true);
   connect(exercise_timer_, &QTimer::timeout,
@@ -110,6 +110,7 @@ void ExerciseWidget::ChangeDifficulty(int level) {
   difficulty_level_ = level;
   GenerateNewExercise();
 }
+
 
 // add buffer class
 

@@ -15,7 +15,7 @@ class CentralWidget : public QWidget {
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 
-  // void ChangeToEmpty();
+  void ChangeToEmpty();
   void ChangeToTranslation();  // указатель в choice_widget
   void ChangeToGrammar();
 
@@ -27,6 +27,8 @@ class CentralWidget : public QWidget {
   void IncScoreSignal();
 
  private:
+  int difficulty_level_ = 0;
+
   QHBoxLayout* layout_;
 
   ChoiceWidget* choice_widget_;

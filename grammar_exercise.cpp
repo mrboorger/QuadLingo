@@ -1,6 +1,6 @@
 #include "grammar_exercise.h"
 
-GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
+GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(parent, level) {
   radio_box_ = new QGroupBox(this);
 
   variant_1_ = new QRadioButton("1");  // vector ?
