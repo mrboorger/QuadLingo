@@ -14,13 +14,15 @@ MusicClass::MusicClass(QWidget* parent)
 
   media_playlist_->setPlaybackMode(QMediaPlaylist::Loop);
   media_playlist_->addMedia(QUrl::fromLocalFile(
-      "c:\\Users\\mrboorger\\CLionProjects\\QT_SEM_MULTIMEDIA\\cmake-build-debug\\music.mp3"));
+      "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\music.mp3"));
   media_playlist_->addMedia(QUrl::fromLocalFile(
-      "c:\\Users\\mrboorger\\CLionProjects\\QT_SEM_MULTIMEDIA\\cmake-build-debug\\music2.mp3"));
+      "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\music0.mp3"));
   media_playlist_->addMedia(QUrl::fromLocalFile(
-      "c:\\Users\\mrboorger\\CLionProjects\\QT_SEM_MULTIMEDIA\\cmake-build-debug\\music3.mp3"));
+      "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\music2.mp3"));
   media_playlist_->addMedia(QUrl::fromLocalFile(
-      "c:\\Users\\mrboorger\\CLionProjects\\QT_SEM_MULTIMEDIA\\cmake-build-debug\\music4.mp3"));
+      "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\music3.mp3"));
+  media_playlist_->addMedia(QUrl::fromLocalFile(
+      "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\.mp3"));
 
   media_player_->setPlaylist(media_playlist_);
   media_player_->setMedia(media_playlist_);

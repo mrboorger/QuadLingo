@@ -29,7 +29,7 @@ set(SOURCES main.cpp main_window.h main_window.cpp choice_widget.h choice_widget
         translation_exercise.h translation_exercise.cpp grammar_exercise.h grammar_exercise.cpp
         empty_exercise.h empty_exercise.cpp grammar_question.h
         progress_bar.h progress_bar.cpp music_class.h music_class.cpp
-        settings_dialog.h settings_dialog.cpp)
+        settings_dialog.h settings_dialog.cpp tasks_loader.h tasks_loader.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${RESOURCES})
 target_link_libraries(${PROJECT_NAME} ${REQUIRED_LIBS_QUALIFIED})

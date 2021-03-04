@@ -38,25 +38,20 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
 }
 
 void TranslationExercise::GGLoadSentences() {
-  sentences_.push_back(tr("Make America Great again"));
-  translated_.push_back(tr("Сделать Америку снова Великой"));
-
-  sentences_.push_back(tr("You need to buy two apples"));
-  translated_.push_back(tr("Вам нужно купить два яблока"));
-
-  sentences_.push_back(tr("Make America Great again"));
-  translated_.push_back(tr("Сделать Америку снова Великой"));
-
-  sentences_.push_back(tr("You need to buy two apples"));
-  translated_.push_back(tr("Вам нужно купить два яблока"));
-
-  sentences_.push_back(tr("Make America Great again"));
-  translated_.push_back(tr("Сделать Америку снова Великой"));
+  exercises_.push_back({tr("Make America Great again"),
+                        tr("Сделать Америку снова Великой")});
+  exercises_.push_back({tr("You need to buy two apples"),
+                        tr("Вам нужно купить два яблока")});
+  exercises_.push_back({tr("Make America Great again"),
+                        tr("Сделать Америку снова Великой")});
+  exercises_.push_back({tr("You need to buy two apples"),
+                        tr("Вам нужно купить два яблока")});
+  exercises_.push_back({tr("Make America Great again"),
+                        tr("Сделать Америку снова Великой")});
 }
 
 void TranslationExercise::GenerateNewExercise() {
-  sentences_.clear();
-  translated_.clear();
+  exercises_.clear();
   count_incorrect_ = 0;
   cur_num_question_ = 0;
 
@@ -64,22 +59,24 @@ void TranslationExercise::GenerateNewExercise() {
   exercise_timer_->setInterval(time_to_solve_);
   exercise_timer_->start();
 
-  GGLoadSentences();
+  // GGLoadSentences();
+  exercises_ =
+      TasksLoader::LoadTranslation(count_questions_, difficulty_level_);
   GenerateNextPart();
 }
 
 bool TranslationExercise::CheckAnswer() {
-  if (translated_[cur_num_question_ - 1].toLower()
+  if (exercises_[cur_num_question_ - 1].second.toLower()
       != answer_->toPlainText().toLower()) {
     // IncIncorrect() --
-    return IncIncorrect();;
+    return IncIncorrect();
   }
   return false;
 }
 
 void TranslationExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
-  sentence_label_->setText(sentences_[cur_num_question_++]);
+  sentence_label_->setText(exercises_[cur_num_question_++].first);
   answer_->setText(tr(""));
 }
 

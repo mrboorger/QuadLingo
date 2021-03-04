@@ -7,6 +7,7 @@
 
 
 int main(int argc, char* argv[]) {
+  srand(time(0));
   QApplication application(argc, argv);
   application.setStyle(QStyleFactory::create("Fusion"));
   // CentralWidget cw(nullptr);
