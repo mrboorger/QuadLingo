@@ -13,7 +13,6 @@ class ChoiceWidget : public QWidget {
   Q_OBJECT
  public:
   explicit ChoiceWidget(QWidget* parent = nullptr);
-  // void resizeEvent(QResizeEvent *event) override;
 
   void ChangeToTranslation();
   void ChangeToGrammar();

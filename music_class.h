@@ -26,4 +26,4 @@ class MusicClass : public QWidget {
 
 };
 
-#endif  // MUSIC_CLASS_H
+#endif  // MUSIC_CLASS_H_

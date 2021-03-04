@@ -1,6 +1,7 @@
 #include "translation_exercise.h"
 
-TranslationExercise::TranslationExercise(QWidget* parent, int level) : ExerciseWidget(
+TranslationExercise::TranslationExercise(QWidget* parent, int level)
+    : ExerciseWidget(
     parent, level) {
   answer_ = new QTextEdit(this);
   answer_->setPlaceholderText(tr("Write a translation here"));
@@ -14,9 +15,6 @@ TranslationExercise::TranslationExercise(QWidget* parent, int level) : ExerciseW
 
   submit_button_->setSizePolicy(QSizePolicy::Expanding,
                                 QSizePolicy::Expanding);
-
-  // answer_->setAutoFormatting(QTextEdit::AutoAll);
-
 
   layout_->addWidget(task_label_, 1);
 
@@ -76,6 +74,7 @@ bool TranslationExercise::CheckAnswer() {
 
 void TranslationExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
+  cur_tip_ = tr("Willy Dilly Billy");
   sentence_label_->setText(exercises_[cur_num_question_++].first);
   answer_->setText(tr(""));
 }

@@ -26,6 +26,8 @@ DifficultyDialog::DifficultyDialog(QWidget* parent, int cur_level) :
   layout_->addWidget(buttons_);
   dialog_buttons_->addButton(tr("Accept"), QDialogButtonBox::ButtonRole::AcceptRole);
   dialog_buttons_->addButton(tr("Close"), QDialogButtonBox::ButtonRole::RejectRole);
+  dialog_buttons_->setSizePolicy(QSizePolicy::Expanding,
+                                 QSizePolicy::Expanding);
   layout_->addWidget(dialog_buttons_);
 
 

@@ -110,9 +110,4 @@ void ExerciseWidget::ChangeDifficulty(int level) {
   difficulty_level_ = level;
   GenerateNewExercise();
 }
-
-
 // add buffer class
-
-
-

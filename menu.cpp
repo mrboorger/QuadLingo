@@ -10,7 +10,6 @@ Menu::Menu(QWidget* parent) :
   connect(change_difficulty, &QAction::triggered, this, &Menu::ShowDialog);
   connect(music_settings, &QAction::triggered,
           music_class_, &MusicClass::CreateDialog);
-  // connect(change_difficulty, &QAction::triggered, qApp, &QApplication::quit);
   menu->addAction("&Change difficulty",
                            this, &Menu::ShowDialog,
                            Qt::CTRL + Qt::Key_C);

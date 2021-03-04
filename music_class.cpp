@@ -4,14 +4,6 @@ MusicClass::MusicClass(QWidget* parent)
     : QWidget(parent),
       media_player_(new QMediaPlayer()),
       media_playlist_(new QMediaPlaylist()) {
-  // SetUi();
-
-  // settings_->setSizePolicy(QSizePolicy::Expanding,
-  //                       QSizePolicy::Expanding);
-  // QIcon icon("c:\\Users\\mrboorger\\CLionProjects\\QT_SEM_MULTIMEDIA\\cmake-build-debug\\photo.jpg");
-  // settings_->setIcon(QIcon("c:\\Users\\mrboorger\\CLionProjects\\QT_SEM_MULTIMEDIA\\cmake-build-debug\\photo.jpg"));
-  // settings_->setIconSize(QSize(100, 100));
-
   media_playlist_->setPlaybackMode(QMediaPlaylist::Loop);
   media_playlist_->addMedia(QUrl::fromLocalFile(
       "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\music.mp3"));

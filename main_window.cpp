@@ -8,7 +8,6 @@ MainWindow::MainWindow(QWidget* parent)
                                 QSizePolicy::Expanding);
   setCentralWidget(&central_widget_);
   setMenuBar(&menu_);
-  // menu_.show();
   connect(&central_widget_, &CentralWidget::IncScoreSignal,
           &menu_, &Menu::IncScore);
   connect(&menu_, &Menu::ChangeDifficultySignal,
