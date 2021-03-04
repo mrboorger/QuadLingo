@@ -96,6 +96,7 @@ bool GrammarExercise::CheckAnswer() {
 void GrammarExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
   ++cur_num_question_;
+  cur_tip_ = exercises_[cur_num_question_ - 1].tip;
   sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
   variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
   variant_2_->setText(exercises_[cur_num_question_ - 1].variants[1]);

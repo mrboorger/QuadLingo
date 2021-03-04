@@ -10,6 +10,8 @@ ExerciseWidget::ExerciseWidget(QWidget* parent) :
     progress_bar_(new QProgressBar) {
   // ChangeToTranslation();
   // ChangeToGrammar();
+  task_label_->setWordWrap(true);
+  sentence_label_->setWordWrap(true);
   connect(exercise_timer_, &QTimer::timeout,
           this, &ExerciseWidget::RestartTimeOut);
 }
@@ -71,6 +73,8 @@ void ExerciseWidget::ShowTip() {
   auto* tip_layout(new QVBoxLayout(dialog_tip_));
   auto* label_tip(new QLabel(cur_tip_));
   auto* ok_button(new QPushButton("OK"));
+  ok_button->setSizePolicy(QSizePolicy::Expanding,
+                           QSizePolicy::Expanding);
   tip_layout->addWidget(label_tip);
   tip_layout->addWidget(ok_button);
   dialog_tip_->setLayout(tip_layout);
