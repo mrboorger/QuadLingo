@@ -68,20 +68,10 @@ void TranslationExercise::GenerateNewExercise() {
   GenerateNextPart();
 }
 
-void TranslationExercise::CheckAnswerAndToNextPart() {
-  if (cur_num_question_ < count_questions_) {
-    if (!CheckAnswer()) {
-      GenerateNextPart();
-    }
-  } else {
-    // result
-  }
-}
-
 bool TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
-    // IncIncorrect() -- 
+    // IncIncorrect() --
     return IncIncorrect();;
   }
   return false;

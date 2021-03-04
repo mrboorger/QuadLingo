@@ -20,6 +20,16 @@ void ExerciseWidget::keyPressEvent(QKeyEvent* event) {
   }
 }
 
+void ExerciseWidget::CheckAnswerAndToNextPart() {
+  if (cur_num_question_ < count_questions_) {
+    if (!CheckAnswer()) {
+      GenerateNextPart();
+    }
+  } else {
+    // result
+  }
+}
+
 // return true, when RestartFail called;
 bool ExerciseWidget::IncIncorrect() {
   ++count_incorrect_;

@@ -28,8 +28,8 @@ class ExerciseWidget : public QWidget {
   virtual void GenerateNewExercise() = 0;
   virtual void GenerateNextPart() = 0;
   virtual bool CheckAnswer() = 0;
-  virtual void CheckAnswerAndToNextPart() = 0;
 
+  void CheckAnswerAndToNextPart();
   void startTimer();
   virtual bool IncIncorrect();
   virtual void ShowTip();
