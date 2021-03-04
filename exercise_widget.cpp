@@ -102,6 +102,11 @@ void ExerciseWidget::RestartTimeOut() {
   wrong_dialog->exec();
 }
 
+void ExerciseWidget::ChangeDifficulty(int level) {
+  difficulty_level_ = level;
+  GenerateNewExercise();
+}
+
 // add buffer class
 
 

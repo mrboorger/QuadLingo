@@ -8,7 +8,7 @@ DifficultyDialog::DifficultyDialog(QWidget* parent, int cur_level) :
     difficulty_buttons_() {
   auto* easy_button_(new QRadioButton(tr("Easy")));
   auto* medium_button_(new QRadioButton(tr("Medium")));
-  auto* hard_button_(new QRadioButton(tr("Medium")));
+  auto* hard_button_(new QRadioButton(tr("Hard")));
 
   difficulty_buttons_.append(easy_button_);
   difficulty_buttons_.append(medium_button_);

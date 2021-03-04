@@ -68,7 +68,8 @@ void GrammarExercise::GenerateNewExercise() {
   exercise_timer_->setInterval(time_to_solve_);
   exercise_timer_->start();
 
-  GGLoadSentences();
+  // GGLoadSentences();
+  exercises_ = TasksLoader::LoadGrammar(count_questions_, difficulty_level_);
   GenerateNextPart();
 
   repaint();

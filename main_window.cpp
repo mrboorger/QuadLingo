@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget* parent)
   // menu_.show();
   connect(&central_widget_, &CentralWidget::IncScoreSignal,
           &menu_, &Menu::IncScore);
+  connect(&menu_, &Menu::ChangeDifficultySignal,
+          &central_widget_, &CentralWidget::ChangeDifficulty);
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event) {

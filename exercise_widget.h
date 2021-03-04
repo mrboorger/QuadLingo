@@ -21,6 +21,7 @@ class ExerciseWidget : public QWidget {
   void keyPressEvent(QKeyEvent* event) override;
   virtual void RestartFail();
   virtual void RestartTimeOut();
+  virtual void ChangeDifficulty(int level);
 
   signals:
   void IncScoreSignal();
@@ -53,9 +54,6 @@ class ExerciseWidget : public QWidget {
   QPushButton* submit_button_;
 
   QProgressBar* progress_bar_;  // red when incorrect
-
-  // void ChangeToTranslation();
-  // void ChangeToGrammar();
 };
 
 #endif  // EXERCISE_WIDGET_H_
