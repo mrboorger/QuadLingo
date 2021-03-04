@@ -23,7 +23,7 @@ class GrammarExercise : public ExerciseWidget {
   void GenerateNewExercise() final;
   void CheckAnswerAndToNextPart() final; // move to public ? наследование приват
   void GenerateNextPart() final;
-  void CheckAnswer() final;
+  bool CheckAnswer() final;
 
   QVector<GrammarQuestion> exercises_;
 

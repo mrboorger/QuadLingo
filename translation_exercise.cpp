@@ -64,31 +64,31 @@ void TranslationExercise::GenerateNewExercise() {
   exercise_timer_->setInterval(time_to_solve_);
   exercise_timer_->start();
 
-  std::cerr << "start" << std::endl;
-
   GGLoadSentences();
   GenerateNextPart();
 }
 
 void TranslationExercise::CheckAnswerAndToNextPart() {
-  CheckAnswer();
-
-  progress_bar_->setValue(cur_num_question_);
   if (cur_num_question_ < count_questions_) {
-    GenerateNextPart();
+    if (!CheckAnswer()) {
+      GenerateNextPart();
+    }
   } else {
     // result
   }
 }
 
-void TranslationExercise::CheckAnswer() {
+bool TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
-    IncIncorrect();
+    // IncIncorrect() -- 
+    return IncIncorrect();;
   }
+  return false;
 }
 
 void TranslationExercise::GenerateNextPart() {
+  progress_bar_->setValue(cur_num_question_);
   sentence_label_->setText(sentences_[cur_num_question_++]);
   answer_->setText(tr(""));
 }
