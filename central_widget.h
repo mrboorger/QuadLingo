@@ -21,6 +21,8 @@ class CentralWidget : public QWidget {
 
   void IncScore();
 
+  void MyResizeEvent(QResizeEvent* event);
+
   void ChangeDifficulty(int level);
 
  signals:

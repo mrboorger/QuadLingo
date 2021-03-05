@@ -50,3 +50,7 @@ void CentralWidget::ChangeDifficulty(int level) {
   difficulty_level_ = level;
   exercise_widget_->ChangeDifficulty(level);
 }
+
+void CentralWidget::MyResizeEvent(QResizeEvent* event) {
+  choice_widget_->MyResizeEvent(event);
+}

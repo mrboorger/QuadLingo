@@ -14,7 +14,8 @@ int main(int argc, char* argv[]) {
     std::cerr << kek.toStdString() << std::endl;
   }
   MainWindow win;
-  win.setWindowTitle("Dancing With Sum");
+  win.setWindowTitle("QuadLingo");
+  win.setWindowIcon(QIcon("c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\quad.jpg"));
   win.show();
 
   return QApplication::exec();

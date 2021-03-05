@@ -36,7 +36,7 @@ class ExerciseWidget : public QWidget {
   void ShowTip();
 
   int difficulty_level_ = 0;
-  int time_to_solve_ = 50000;
+  int time_to_solve_ = 30000;
   int count_questions_ = 5;
   int max_wrong_ = 2;
   int cur_num_question_ = 0;

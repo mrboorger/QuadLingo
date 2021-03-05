@@ -19,5 +19,6 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
   font_.setPointSizeF(sz / 35.0);
   menu_.setFont(font_);
   central_widget_.setFont(font_);
+  central_widget_.MyResizeEvent(event);
   QWidget::resizeEvent(event);
 }

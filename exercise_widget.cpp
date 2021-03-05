@@ -49,9 +49,10 @@ bool ExerciseWidget::IncIncorrect() {
 void ExerciseWidget::RestartFail() {
   auto* wrong_dialog(new QDialog(this));
   wrong_dialog->setWindowTitle("Wrong!");
-  wrong_dialog->setSizePolicy(QSizePolicy::Expanding,
-                              QSizePolicy::Expanding);
+  // wrong_dialog->setSizePolicy(QSizePolicy::Expanding,
+  //                             QSizePolicy::Expanding);
   auto* label(new QLabel(tr("Too many incorrect answers")));
+  label->setWordWrap(true);
   auto* button(new QPushButton("Restart"));
   auto* layout(new QVBoxLayout(wrong_dialog));
   label->setSizePolicy(QSizePolicy::Expanding,
@@ -60,7 +61,7 @@ void ExerciseWidget::RestartFail() {
                         QSizePolicy::Expanding);
   layout->addWidget(label, 3);
   layout->addWidget(button, 1);
-
+  wrong_dialog->resize(300, 100);
   connect(button, &QPushButton::clicked, wrong_dialog, &QDialog::reject);
   connect(wrong_dialog, &QDialog::rejected,
           this, &ExerciseWidget::GenerateNewExercise);
@@ -73,11 +74,16 @@ void ExerciseWidget::ShowTip() {
   auto* tip_layout(new QVBoxLayout(dialog_tip_));
   auto* label_tip(new QLabel(cur_tip_));
   auto* ok_button(new QPushButton("OK"));
+  label_tip->setSizePolicy(QSizePolicy::Expanding,
+                           QSizePolicy::Expanding);
   ok_button->setSizePolicy(QSizePolicy::Expanding,
                            QSizePolicy::Expanding);
-  tip_layout->addWidget(label_tip);
-  tip_layout->addWidget(ok_button);
+  label_tip->setWordWrap(true);
+  tip_layout->addWidget(label_tip, 3);
+  tip_layout->addWidget(ok_button, 1);
+
   dialog_tip_->setLayout(tip_layout);
+  dialog_tip_->resize(400, 200);
   connect(ok_button, &QPushButton::clicked, dialog_tip_, &QDialog::reject);
   dialog_tip_->exec();
 }
@@ -91,6 +97,7 @@ void ExerciseWidget::RestartTimeOut() {
   wrong_dialog->setSizePolicy(QSizePolicy::Expanding,
                               QSizePolicy::Expanding);
   auto* label(new QLabel(tr("Too slow")));
+  label->setWordWrap(true);
   auto* button(new QPushButton("Restart"));
   auto* layout(new QVBoxLayout(wrong_dialog));
   label->setSizePolicy(QSizePolicy::Expanding,
@@ -100,6 +107,7 @@ void ExerciseWidget::RestartTimeOut() {
   layout->addWidget(label, 3);
   layout->addWidget(button, 1);
 
+  wrong_dialog->resize(300, 100);
   connect(button, &QPushButton::clicked, wrong_dialog, &QDialog::reject);
   connect(wrong_dialog, &QDialog::rejected,
           this, &ExerciseWidget::GenerateNewExercise);
