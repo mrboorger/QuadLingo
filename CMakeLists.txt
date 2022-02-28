@@ -8,7 +8,9 @@ set(CMAKE_AUTOMOC ON) # Enable Qt MOC compiler
 set(CMAKE_AUTORCC ON) # Enable Qt resources compiler
 set(CMAKE_AUTOUIC ON) # Enable Qt UI compiler
 
-set(CMAKE_PREFIX_PATH "C:/Qt/5.15.2/mingw81_64/lib/cmake")
+
+#set(CMAKE_PREFIX_PATH "C:/Qt/5.15.2/mingw81_64/lib/cmake")
+set(CMAKE_PREFIX_PATH "~/Qt/5.15.2/gcc_64/lib/cmake")
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
