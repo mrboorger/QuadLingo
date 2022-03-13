@@ -2,8 +2,8 @@
 
 MusicClass::MusicClass(QWidget* parent)
     : QWidget(parent),
-      media_player_(new QMediaPlayer()),
-      media_playlist_(new QMediaPlaylist()) {
+      media_player_(new QMediaPlayer(this)),
+      media_playlist_(new QMediaPlaylist(this)) {
   media_playlist_->setPlaybackMode(QMediaPlaylist::Loop);
 //  media_playlist_->addMedia(QUrl::fromLocalFile(
 //      "c:\\Users\\mrboorger\\CLionProjects\\QuadLingo\\cmake-build-debug\\music\\music.mp3"));

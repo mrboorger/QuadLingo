@@ -8,6 +8,8 @@ set(CMAKE_AUTOMOC ON) # Enable Qt MOC compiler
 set(CMAKE_AUTORCC ON) # Enable Qt resources compiler
 set(CMAKE_AUTOUIC ON) # Enable Qt UI compiler
 
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address,undefined")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address,undefined")
 
 #set(CMAKE_PREFIX_PATH "C:/Qt/5.15.2/mingw81_64/lib/cmake")
 set(CMAKE_PREFIX_PATH "~/Qt/5.15.2/gcc_64/lib/cmake")
@@ -23,7 +25,7 @@ set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Widgets Qt5::Multimedia Qt5::WebSocke
 find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS} REQUIRED)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Wall -Wextra -O3")
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Wall -Wextra")
 
 set(SOURCES main.cpp main_window.h main_window.cpp choice_widget.h choice_widget.cpp menu.h menu.cpp
         difficulty_dialog.h difficulty_dialog.cpp

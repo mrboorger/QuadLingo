@@ -3,11 +3,11 @@
 ExerciseWidget::ExerciseWidget(QWidget* parent, int level) :
     QWidget(parent),
     exercise_timer_(new QTimer(this)),
-    layout_(new QVBoxLayout()),
-    task_label_(new QLabel()),
-    sentence_label_(new QLabel()),
-    submit_button_(new QPushButton("Submit")),
-    progress_bar_(new QProgressBar) {
+    layout_(new QVBoxLayout(this)),
+    task_label_(new QLabel(this)),
+    sentence_label_(new QLabel(this)),
+    submit_button_(new QPushButton("Submit", this)),
+    progress_bar_(new QProgressBar(this)) {
   // Centr
   difficulty_level_ = level;
   task_label_->setWordWrap(true);

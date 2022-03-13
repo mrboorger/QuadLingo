@@ -1,9 +1,9 @@
 #include "menu.h"
 
 Menu::Menu(QWidget* parent) :
-    score_label_(new QLabel("Score: 0 ")), music_class_(new MusicClass(this)) {
+    score_label_(new QLabel("Score: 0 ", this)), music_class_(new MusicClass(this)) {
   setParent(parent);
-  auto* menu = new QMenu(tr("Menu"));
+  auto* menu = new QMenu(tr("Menu"), this);
   auto* change_difficulty(new QAction(tr("&Change difficulty"), this));
   auto* music_settings(new QAction(tr("&Music settings"), this));
   menu->addAction(music_settings);

@@ -30,6 +30,7 @@ class GrammarExercise : public ExerciseWidget {
 
   QGroupBox* radio_box_;
 
+  // TODO: create different count if variants
   QRadioButton* variant_1_;
   QRadioButton* variant_2_;
   QRadioButton* variant_3_;
