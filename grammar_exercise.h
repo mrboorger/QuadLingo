@@ -22,8 +22,6 @@ class GrammarExercise : public ExerciseWidget {
  private:
   static constexpr int kMaxVariants = 6;
 
-  void GGLoadSentences();
-
   void GenerateNewExercise() final;
   void GenerateNextPart() final;
   bool CheckAnswer() final;
@@ -32,7 +30,6 @@ class GrammarExercise : public ExerciseWidget {
 
   QGroupBox* radio_box_;
 
-  // TODO: create different count if variants
   QVector<QRadioButton*> variants_;
 };
 

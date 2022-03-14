@@ -32,14 +32,6 @@ TranslationExercise::TranslationExercise(QWidget* parent, int level)
   GenerateNewExercise();
 }
 
-void TranslationExercise::GGLoadSentences() {
-  exercises_.push_back({tr("Make America Great again"), tr("Сделать Америку снова Великой")});
-  exercises_.push_back({tr("You need to buy two apples"), tr("Вам нужно купить два яблока")});
-  exercises_.push_back({tr("Make America Great again"), tr("Сделать Америку снова Великой")});
-  exercises_.push_back({tr("You need to buy two apples"), tr("Вам нужно купить два яблока")});
-  exercises_.push_back({tr("Make America Great again"), tr("Сделать Америку снова Великой")});
-}
-
 void TranslationExercise::GenerateNewExercise() {
   exercises_.clear();
   count_incorrect_ = 0;
@@ -49,7 +41,6 @@ void TranslationExercise::GenerateNewExercise() {
   exercise_timer_->setInterval(time_to_solve_);
   exercise_timer_->start();
 
-  // GGLoadSentences();
   exercises_ = TasksLoader::LoadTranslation(count_questions_, difficulty_level_);
   GenerateNextPart();
 }
