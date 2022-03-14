@@ -3,19 +3,17 @@
 GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(parent, level) {
   radio_box_ = new QGroupBox(this);
 
-  variant_1_ = new QRadioButton("1");  // vector ?
-  variant_2_ = new QRadioButton("2");
-  variant_3_ = new QRadioButton("3");
-
   task_label_->setText("Choose the right answer:");
 
   sentence_label_->setWordWrap(true);
   submit_button_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
   auto* radio_layout_ = new QVBoxLayout();
-  radio_layout_->addWidget(variant_1_);
-  radio_layout_->addWidget(variant_2_);
-  radio_layout_->addWidget(variant_3_);
+
+  for (int i = 0; i < kMaxVariants; ++i) {
+    variants_.push_back(new QRadioButton());
+    radio_layout_->addWidget(variants_.back());
+  }
 
   radio_box_->setLayout(radio_layout_);
 
@@ -29,7 +27,7 @@ GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(pa
 
   layout_->addWidget(progress_bar_, 1);
 
-  progress_bar_->setMaximum(count_questions_);  ////
+  progress_bar_->setMaximum(count_questions_);
 
   setLayout(layout_);
 
@@ -75,18 +73,15 @@ void GrammarExercise::GenerateNewExercise() {
 
 bool GrammarExercise::CheckAnswer() {
   const QRadioButton* selected_variant = nullptr;
-  if (variant_1_->isChecked()) {
-    selected_variant = variant_1_;
+
+  for (auto& variant : variants_) {
+    if (variant->isChecked()) {
+      selected_variant = variant;
+    }
   }
-  if (variant_2_->isChecked()) {
-    selected_variant = variant_2_;
-  }
-  if (variant_3_->isChecked()) {
-    selected_variant = variant_3_;
-  }
+
   if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
     return IncIncorrect();
-    ;
   }
   return false;
 }
@@ -96,9 +91,14 @@ void GrammarExercise::GenerateNextPart() {
   ++cur_num_question_;
   cur_tip_ = exercises_[cur_num_question_ - 1].tip;
   sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
-  variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
-  variant_2_->setText(exercises_[cur_num_question_ - 1].variants[1]);
-  variant_3_->setText(exercises_[cur_num_question_ - 1].variants[2]);
 
-  variant_1_->setChecked(true);
+  for (int i = 0; i < kMaxVariants; ++i) {
+    variants_[i]->hide();
+  }
+  for (int i = 0; i < exercises_[cur_num_question_ - 1].variants.size(); ++i) {
+    variants_[i]->setText(exercises_[cur_num_question_ - 1].variants[i]);
+    variants_[i]->show();
+  }
+
+  variants_[0]->setChecked(true);
 }
