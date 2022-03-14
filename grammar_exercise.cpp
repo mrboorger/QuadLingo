@@ -10,8 +10,7 @@ GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(pa
   task_label_->setText("Choose the right answer:");
 
   sentence_label_->setWordWrap(true);
-  submit_button_->setSizePolicy(QSizePolicy::Expanding,
-                                QSizePolicy::Expanding);
+  submit_button_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
   auto* radio_layout_ = new QVBoxLayout();
   radio_layout_->addWidget(variant_1_);
@@ -30,12 +29,11 @@ GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(pa
 
   layout_->addWidget(progress_bar_, 1);
 
-  progress_bar_->setMaximum(count_questions_); ////
+  progress_bar_->setMaximum(count_questions_);  ////
 
   setLayout(layout_);
 
-  connect(submit_button_, &QPushButton::clicked,
-          this, &GrammarExercise::CheckAnswerAndToNextPart);
+  connect(submit_button_, &QPushButton::clicked, this, &GrammarExercise::CheckAnswerAndToNextPart);
   GenerateNewExercise();
 }
 
@@ -75,7 +73,6 @@ void GrammarExercise::GenerateNewExercise() {
   repaint();
 }
 
-
 bool GrammarExercise::CheckAnswer() {
   const QRadioButton* selected_variant = nullptr;
   if (variant_1_->isChecked()) {
@@ -88,7 +85,8 @@ bool GrammarExercise::CheckAnswer() {
     selected_variant = variant_3_;
   }
   if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
-    return IncIncorrect();;
+    return IncIncorrect();
+    ;
   }
   return false;
 }
@@ -104,4 +102,3 @@ void GrammarExercise::GenerateNextPart() {
 
   variant_1_->setChecked(true);
 }
-

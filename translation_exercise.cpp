@@ -1,8 +1,7 @@
 #include "translation_exercise.h"
 
 TranslationExercise::TranslationExercise(QWidget* parent, int level)
-    : ExerciseWidget(
-    parent, level) {
+    : ExerciseWidget(parent, level) {
   answer_ = new QTextEdit(this);
   answer_->setPlaceholderText(tr("Write a translation here"));
 
@@ -10,11 +9,9 @@ TranslationExercise::TranslationExercise(QWidget* parent, int level)
 
   sentence_label_->setWordWrap(true);
 
-  answer_->setSizePolicy(QSizePolicy::Expanding,
-                         QSizePolicy::Expanding);
+  answer_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-  submit_button_->setSizePolicy(QSizePolicy::Expanding,
-                                QSizePolicy::Expanding);
+  submit_button_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
   layout_->addWidget(task_label_, 1);
 
@@ -26,26 +23,21 @@ TranslationExercise::TranslationExercise(QWidget* parent, int level)
 
   layout_->addWidget(progress_bar_, 1);
 
-  progress_bar_->setMaximum(count_questions_); ////
+  progress_bar_->setMaximum(count_questions_);  ////
 
-  connect(submit_button_, &QPushButton::clicked,
-          this, &TranslationExercise::CheckAnswerAndToNextPart);
+  connect(submit_button_, &QPushButton::clicked, this,
+          &TranslationExercise::CheckAnswerAndToNextPart);
 
   setLayout(layout_);
   GenerateNewExercise();
 }
 
 void TranslationExercise::GGLoadSentences() {
-  exercises_.push_back({tr("Make America Great again"),
-                        tr("Сделать Америку снова Великой")});
-  exercises_.push_back({tr("You need to buy two apples"),
-                        tr("Вам нужно купить два яблока")});
-  exercises_.push_back({tr("Make America Great again"),
-                        tr("Сделать Америку снова Великой")});
-  exercises_.push_back({tr("You need to buy two apples"),
-                        tr("Вам нужно купить два яблока")});
-  exercises_.push_back({tr("Make America Great again"),
-                        tr("Сделать Америку снова Великой")});
+  exercises_.push_back({tr("Make America Great again"), tr("Сделать Америку снова Великой")});
+  exercises_.push_back({tr("You need to buy two apples"), tr("Вам нужно купить два яблока")});
+  exercises_.push_back({tr("Make America Great again"), tr("Сделать Америку снова Великой")});
+  exercises_.push_back({tr("You need to buy two apples"), tr("Вам нужно купить два яблока")});
+  exercises_.push_back({tr("Make America Great again"), tr("Сделать Америку снова Великой")});
 }
 
 void TranslationExercise::GenerateNewExercise() {
@@ -58,14 +50,12 @@ void TranslationExercise::GenerateNewExercise() {
   exercise_timer_->start();
 
   // GGLoadSentences();
-  exercises_ =
-      TasksLoader::LoadTranslation(count_questions_, difficulty_level_);
+  exercises_ = TasksLoader::LoadTranslation(count_questions_, difficulty_level_);
   GenerateNextPart();
 }
 
 bool TranslationExercise::CheckAnswer() {
-  if (exercises_[cur_num_question_ - 1].second.toLower()
-      != answer_->toPlainText().toLower()) {
+  if (exercises_[cur_num_question_ - 1].second.toLower() != answer_->toPlainText().toLower()) {
     // IncIncorrect() --
     return IncIncorrect();
   }
@@ -78,5 +68,3 @@ void TranslationExercise::GenerateNextPart() {
   sentence_label_->setText(exercises_[cur_num_question_++].first);
   answer_->setText(tr(""));
 }
-
-

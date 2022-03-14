@@ -42,7 +42,8 @@ bool MusicClass::IsMusicDirExists() const {
 
 QDir MusicClass::GetMusicDir() {
   if (!IsMusicDirExists()) {
-    throw std::runtime_error("Directory \"" + kMusicDirPath.toStdString() + "\"" + " doesn't exist\n");
+    throw std::runtime_error("Directory \"" + kMusicDirPath.toStdString() + "\"" +
+                             " doesn't exist\n");
   }
   return QDir(kMusicDirPath);
 }

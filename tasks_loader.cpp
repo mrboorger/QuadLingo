@@ -101,8 +101,8 @@ bool TasksLoader::IfJsonContainsFields(QJsonObject exercise_obj, QSet<QString> n
   QSet<QString> keys_set(keys_list.begin(), keys_list.end());
 
   if (!keys_set.contains(needed)) {
-    qDebug() << "json hasn't " << QSet(needed).subtract(keys_set) << "fields. "
-             << exercise_obj << '\n';
+    qDebug() << "json hasn't " << QSet(needed).subtract(keys_set) << "fields. " << exercise_obj
+             << '\n';
     return false;
   }
   return true;

@@ -1,12 +1,12 @@
 #ifndef DIFFICULTY_DIALOG_H_
 #define DIFFICULTY_DIALOG_H_
 
-#include <QDialog>
-#include <QRadioButton>
-#include <QGroupBox>
-#include <QVBoxLayout>
-#include <QDialogButtonBox>
 #include <QApplication>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QGroupBox>
+#include <QRadioButton>
+#include <QVBoxLayout>
 
 class DifficultyDialog : public QDialog {
   Q_OBJECT
@@ -14,6 +14,7 @@ class DifficultyDialog : public QDialog {
   explicit DifficultyDialog(QWidget* parent = nullptr, int cur_level = 0);
 
   int GetNumChecked();
+
  private:
   QGroupBox* buttons_;
   QVBoxLayout* layout_;

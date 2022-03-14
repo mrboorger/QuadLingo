@@ -1,15 +1,14 @@
 #ifndef EXERCISE_WIDGET_H_
 #define EXERCISE_WIDGET_H_
 
-#include <QWidget>
-#include <QLabel>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QProgressBar>
-#include <QKeyEvent>
 #include <QDialog>
+#include <QKeyEvent>
+#include <QLabel>
+#include <QProgressBar>
+#include <QPushButton>
 #include <QTimer>
-
+#include <QVBoxLayout>
+#include <QWidget>
 #include <iostream>
 
 class ExerciseWidget : public QWidget {
@@ -23,7 +22,7 @@ class ExerciseWidget : public QWidget {
   virtual void RestartTimeOut();
   virtual void ChangeDifficulty(int level);
 
-  signals:
+ signals:
   void IncScoreSignal();
 
  protected:

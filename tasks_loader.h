@@ -1,16 +1,16 @@
 #ifndef TASKS_LOADER_H_
 #define TASKS_LOADER_H_
 
-#include <QVector>
-#include <QString>
 #include <QFile>
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <string>
-#include <algorithm>
 #include <QSet>
+#include <QString>
+#include <QVector>
+#include <algorithm>
+#include <fstream>
+#include <iostream>
 #include <set>
+#include <string>
+#include <vector>
 
 #include "grammar_question.h"
 

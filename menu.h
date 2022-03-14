@@ -1,20 +1,18 @@
 #ifndef MENU_H_
 #define MENU_H_
 
-#include <QMenuBar>
-#include <QWidget>
 #include <QAction>
-#include <QPushButton>
-#include <QSizePolicy>
-
 #include <QApplication>
 #include <QLabel>
-
+#include <QMenuBar>
+#include <QPushButton>
+#include <QSizePolicy>
+#include <QWidget>
 #include <iostream>
 
 #include "difficulty_dialog.h"
-#include "settings_dialog.h"
 #include "music_class.h"
+#include "settings_dialog.h"
 
 class Menu : public QMenuBar {
   Q_OBJECT

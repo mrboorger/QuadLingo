@@ -1,13 +1,13 @@
 #ifndef GRAMMAR_EXERCISE_H_
 #define GRAMMAR_EXERCISE_H_
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QPushButton>
 #include <QGroupBox>
-#include <QRadioButton>
+#include <QLabel>
 #include <QProgressBar>
+#include <QPushButton>
+#include <QRadioButton>
+#include <QVBoxLayout>
+#include <QWidget>
 #include <vector>
 
 #include "exercise_widget.h"
@@ -15,7 +15,7 @@
 #include "tasks_loader.h"
 
 class GrammarExercise : public ExerciseWidget {
- Q_OBJECT
+  Q_OBJECT
  public:
   explicit GrammarExercise(QWidget* parent, int level = 0);
 

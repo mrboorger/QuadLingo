@@ -1,19 +1,18 @@
 #include "exercise_widget.h"
 
-ExerciseWidget::ExerciseWidget(QWidget* parent, int level) :
-    QWidget(parent),
-    exercise_timer_(new QTimer(this)),
-    layout_(new QVBoxLayout(this)),
-    task_label_(new QLabel(this)),
-    sentence_label_(new QLabel(this)),
-    submit_button_(new QPushButton("Submit", this)),
-    progress_bar_(new QProgressBar(this)) {
+ExerciseWidget::ExerciseWidget(QWidget* parent, int level)
+    : QWidget(parent),
+      exercise_timer_(new QTimer(this)),
+      layout_(new QVBoxLayout(this)),
+      task_label_(new QLabel(this)),
+      sentence_label_(new QLabel(this)),
+      submit_button_(new QPushButton("Submit", this)),
+      progress_bar_(new QProgressBar(this)) {
   // Centr
   difficulty_level_ = level;
   task_label_->setWordWrap(true);
   sentence_label_->setWordWrap(true);
-  connect(exercise_timer_, &QTimer::timeout,
-          this, &ExerciseWidget::RestartTimeOut);
+  connect(exercise_timer_, &QTimer::timeout, this, &ExerciseWidget::RestartTimeOut);
 }
 
 void ExerciseWidget::keyPressEvent(QKeyEvent* event) {
@@ -55,16 +54,13 @@ void ExerciseWidget::RestartFail() {
   label->setWordWrap(true);
   auto* button(new QPushButton("Restart"));
   auto* layout(new QVBoxLayout(wrong_dialog));
-  label->setSizePolicy(QSizePolicy::Expanding,
-                       QSizePolicy::Expanding);
-  button->setSizePolicy(QSizePolicy::Expanding,
-                        QSizePolicy::Expanding);
+  label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+  button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   layout->addWidget(label, 3);
   layout->addWidget(button, 1);
   wrong_dialog->resize(300, 100);
   connect(button, &QPushButton::clicked, wrong_dialog, &QDialog::reject);
-  connect(wrong_dialog, &QDialog::rejected,
-          this, &ExerciseWidget::GenerateNewExercise);
+  connect(wrong_dialog, &QDialog::rejected, this, &ExerciseWidget::GenerateNewExercise);
   wrong_dialog->exec();
 }
 
@@ -74,10 +70,8 @@ void ExerciseWidget::ShowTip() {
   auto* tip_layout(new QVBoxLayout(dialog_tip_));
   auto* label_tip(new QLabel(cur_tip_));
   auto* ok_button(new QPushButton("OK"));
-  label_tip->setSizePolicy(QSizePolicy::Expanding,
-                           QSizePolicy::Expanding);
-  ok_button->setSizePolicy(QSizePolicy::Expanding,
-                           QSizePolicy::Expanding);
+  label_tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+  ok_button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   label_tip->setWordWrap(true);
   tip_layout->addWidget(label_tip, 3);
   tip_layout->addWidget(ok_button, 1);
@@ -94,23 +88,19 @@ void ExerciseWidget::RestartTimeOut() {
   }
   auto* wrong_dialog(new QDialog(this));
   wrong_dialog->setWindowTitle("Time Out!");
-  wrong_dialog->setSizePolicy(QSizePolicy::Expanding,
-                              QSizePolicy::Expanding);
+  wrong_dialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   auto* label(new QLabel(tr("Too slow")));
   label->setWordWrap(true);
   auto* button(new QPushButton("Restart"));
   auto* layout(new QVBoxLayout(wrong_dialog));
-  label->setSizePolicy(QSizePolicy::Expanding,
-                       QSizePolicy::Expanding);
-  button->setSizePolicy(QSizePolicy::Expanding,
-                        QSizePolicy::Expanding);
+  label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+  button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   layout->addWidget(label, 3);
   layout->addWidget(button, 1);
 
   wrong_dialog->resize(300, 100);
   connect(button, &QPushButton::clicked, wrong_dialog, &QDialog::reject);
-  connect(wrong_dialog, &QDialog::rejected,
-          this, &ExerciseWidget::GenerateNewExercise);
+  connect(wrong_dialog, &QDialog::rejected, this, &ExerciseWidget::GenerateNewExercise);
   wrong_dialog->exec();
 }
 

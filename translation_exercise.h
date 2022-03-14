@@ -1,12 +1,12 @@
 #ifndef TRANSLATION_EXERCISE_H_
 #define TRANSLATION_EXERCISE_H_
 
-#include <QWidget>
 #include <QLabel>
-#include <QTextEdit>
-#include <QPushButton>
-#include <QVBoxLayout>
 #include <QProgressBar>
+#include <QPushButton>
+#include <QTextEdit>
+#include <QVBoxLayout>
+#include <QWidget>
 #include <vector>
 
 #include "exercise_widget.h"

@@ -1,13 +1,13 @@
 #ifndef CHOICE_WIDGET_H_
 #define CHOICE_WIDGET_H_
 
-#include <QWidget>
-#include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QResizeEvent>
 #include <QSpacerItem>
+#include <QVBoxLayout>
+#include <QWidget>
 
 class ChoiceWidget : public QWidget {
   Q_OBJECT
@@ -19,9 +19,9 @@ class ChoiceWidget : public QWidget {
 
   void MyResizeEvent(QResizeEvent* event);
 
-  signals:
-   void ChangeToTranslationSignal();
-   void ChangeToGrammarSignal();
+ signals:
+  void ChangeToTranslationSignal();
+  void ChangeToGrammarSignal();
 
  private:
   QVBoxLayout* vert_layout_;

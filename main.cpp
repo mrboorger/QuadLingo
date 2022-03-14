@@ -1,10 +1,8 @@
 #include <QApplication>
 #include <QStyleFactory>
-
 #include <iostream>
 
 #include "main_window.h"
-
 
 int main(int argc, char* argv[]) {
   srand(time(0));
